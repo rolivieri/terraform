@@ -30,16 +30,16 @@ resource "ibm_container_cluster" "mos-cluster" {
   default_pool_size = "${var.default_pool_size}"
   public_vlan_id    = "${var.private_only ? null : element(var.public_vlan_ids, 0) }"
   private_vlan_id   = "${element(var.private_vlan_ids, 0)}"
-  resource_group_id = "${var.resource_group_id}"
+  resource_group_id = "${data.ibm_resource_group.mos_rg.id}"
 }
 
 resource ibm_container_worker_pool_zone_attachment multi_zone {
     count             = "${length(var.zones) - 1}"
-    resource_group_id = "${var.resource_group_id}"
+    resource_group_id = "${data.ibm_resource_group.mos_rg.id}"
     cluster           = "${ibm_container_cluster.mos-cluster.id}"
     worker_pool       = "${ibm_container_cluster.mos-cluster.worker_pools.0.id}"
     zone              = "${element(var.zones, count.index + 1)}"
-    public_vlan_id    = "${var.private_only ? null : element(var.public_vlan_ids, count.index + 1)}"
+    public_vlan_id    = "${element(var.public_vlan_ids, count.index + 1)}"
     private_vlan_id   = "${element(var.private_vlan_ids, count.index + 1)}"
 }
 
