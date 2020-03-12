@@ -43,3 +43,10 @@ resource ibm_container_worker_pool_zone_attachment multi_zone {
     private_vlan_id   = "${element(var.private_vlan_ids, count.index + 1)}"
 }
 
+resource "ibm_resource_instance" "mos-ibp" {
+  name              = "IBP-MOS"
+  service           = "blockchain"
+  plan              = "standard"
+  location          = "${var.ibm_region}"
+  resource_group_id = "${data.ibm_resource_group.mos_rg.id}"
+}

@@ -19,6 +19,9 @@ https://ibm-cloud.github.io/tf-ibm-docs/
 https://github.com/IBM-Cloud/terraform-provider-ibm/issues/804
 
 
+https://cloud.ibm.com/docs/cli?topic=cloud-cli-manage-classic-vlans
+
+
 
 557  bx catalog
   558  bx catalog service
