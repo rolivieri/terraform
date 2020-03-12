@@ -15,7 +15,7 @@ provider ibm {
 # Resource Group
 ##############################################################################
 
-data ibm_resource_group resource_group {
+data ibm_resource_group mos_rg {
   name = "${var.resource_group}"
 }
 

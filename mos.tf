@@ -3,7 +3,7 @@ resource "ibm_resource_instance" "mos-sysdig" {
   service           = "sysdig-monitor"
   plan              = "graduated-tier"
   location          = "${var.ibm_region}"
-  resource_group_id = "${var.resource_group_id}"
+  resource_group_id = "${data.ibm_resource_group.mos_rg.id}"
 }
 
 resource "ibm_resource_instance" "mos-logdna" {
@@ -11,7 +11,7 @@ resource "ibm_resource_instance" "mos-logdna" {
   service           = "logdna"
   plan              = "30-day"
   location          = "${var.ibm_region}"
-  resource_group_id =  "${var.resource_group_id}"
+  resource_group_id = "${data.ibm_resource_group.mos_rg.id}"
 }
 
 resource "ibm_resource_instance" "mos-object-storage" {
@@ -19,7 +19,7 @@ resource "ibm_resource_instance" "mos-object-storage" {
   service           = "cloud-object-storage"
   plan              = "standard"
   location          = "global"
-  resource_group_id =  "${var.resource_group_id}"
+  resource_group_id = "${data.ibm_resource_group.mos_rg.id}"
 }
 
 resource "ibm_container_cluster" "mos-cluster" {
