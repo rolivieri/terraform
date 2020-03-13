@@ -45,7 +45,7 @@ resource ibm_container_worker_pool_zone_attachment multi_zone {
 
 resource "ibm_resource_instance" "mos-ibp" {
   name              = "IBP-MOS"
-  service           = "blockchain"
+  service           = "blockchainnnn"
   plan              = "standard"
   location          = "${var.ibm_region}"
   resource_group_id = "${data.ibm_resource_group.mos_rg.id}"
