@@ -1,6 +1,8 @@
 HERE: https://github.com/Cloud-Schematics
 
 
+https://github.com/IBM-Cloud/terraform-provider-ibm/blob/master/ibm/resource_ibm_resource_instance.go#L180
+
 http://jamesthom.as/blog/2019/01/25/provisioning-ibm-cloud-services-with-terraform/
 
 
